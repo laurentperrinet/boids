@@ -51,7 +51,7 @@ function sizeCanvas() {
 // nudge it back in and reverse its direction.
 function keepWithinBounds(boid) {
   const margin = 200;
-  const turnFactor = .9 + .1 * Math.random();
+  const turnFactor = .8 + .2 * Math.random();
 
   if (boid.x < margin) {
     boid.dx += turnFactor;
