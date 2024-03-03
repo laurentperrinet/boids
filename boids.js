@@ -3,7 +3,7 @@ let width = 320;
 let height = 200;
 
 const numBoids = 500;
-const visualRange = 50;
+const visualRange = 35;
 
 var boids = [];
 
@@ -70,7 +70,7 @@ function keepWithinBounds(boid) {
 // Find the center of mass of the other boids and adjust velocity slightly to
 // point towards the center of mass.
 function flyTowardsCenter(boid) {
-  const centeringFactor = 0.010; // adjust velocity by this %
+  const centeringFactor = 0.005; // adjust velocity by this %
 
   let centerX = 0;
   let centerY = 0;
