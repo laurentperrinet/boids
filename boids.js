@@ -50,7 +50,7 @@ function sizeCanvas() {
 // Constrain a boid to within the window. If it gets too close to an edge,
 // nudge it back in and reverse its direction.
 function keepWithinBounds(boid) {
-  const margin = 20;
+  const margin = 50;
   const turnFactor = .8 + .2 * Math.random();
 
   if (boid.x < margin) {
@@ -192,7 +192,7 @@ function animationLoop() {
     boid.x += boid.dx;
     boid.y += boid.dy;
     boid.history.push([boid.x, boid.y])
-    boid.history = boid.history.slice(-100);
+    boid.history = boid.history.slice(-70);
   }
 
   // Clear the canvas and redraw all the boids in their current positions
