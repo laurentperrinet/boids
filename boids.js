@@ -3,7 +3,7 @@ let width = 320;
 let height = 200;
 
 const numBoids = 500;
-const visualRange = 75;
+const visualRange = 100;
 
 var boids = [];
 
@@ -50,7 +50,7 @@ function sizeCanvas() {
 // nudge it back in and reverse its direction.
 function keepWithinBounds(boid) {
   const margin = 200;
-  const turnFactor = 1;
+  const turnFactor = .9 + .1 * Math.random();
 
   if (boid.x < margin) {
     boid.dx += turnFactor;
