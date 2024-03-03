@@ -14,7 +14,7 @@ function initBoids() {
       y: Math.random() * height,
       dx: Math.random() * 10 - 5,
       dy: Math.random() * 10 - 5,
-      color: 'hsl(' + 360 * Math.random() + ', 50%, 50%)', // "#" + Math.floor(Math.random()*16777215).toString(16),
+      color: 'hsl(' + 90 + 90 * Math.random() + ', 50%, 50%)', // "#" + Math.floor(Math.random()*16777215).toString(16),
       history: [],
     };
   }
