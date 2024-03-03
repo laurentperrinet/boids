@@ -14,6 +14,7 @@ function initBoids() {
       y: Math.random() * height,
       dx: Math.random() * 10 - 5,
       dy: Math.random() * 10 - 5,
+      color: "#" + Math.floor(Math.random()*16777215).toString(16);
       history: [],
     };
   }
@@ -156,7 +157,7 @@ function drawBoid(ctx, boid) {
   ctx.translate(boid.x, boid.y);
   ctx.rotate(angle);
   ctx.translate(-boid.x, -boid.y);
-  ctx.fillStyle = "#0099ff"; // "#558cf4";
+  ctx.fillStyle = boid.color ; // "#0099ff"; // "#558cf4";
   ctx.beginPath();
   ctx.moveTo(boid.x, boid.y);
   ctx.lineTo(boid.x - 9, boid.y + 3);
@@ -166,7 +167,7 @@ function drawBoid(ctx, boid) {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
 
   if (DRAW_TRAIL) {
-    ctx.strokeStyle = "#558cf466";
+    ctx.strokeStyle = boid.color ; // "#558cf466";
     ctx.beginPath();
     ctx.moveTo(boid.history[0][0], boid.history[0][1]);
     for (const point of boid.history) {
