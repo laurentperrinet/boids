@@ -1,8 +1,8 @@
 // Size of canvas. These get updated to fill the whole browser.
-let width = 150;
-let height = 150;
+let width = 320;
+let height = 200;
 
-const numBoids = 100;
+const numBoids = 500;
 const visualRange = 75;
 
 var boids = [];
@@ -69,7 +69,7 @@ function keepWithinBounds(boid) {
 // Find the center of mass of the other boids and adjust velocity slightly to
 // point towards the center of mass.
 function flyTowardsCenter(boid) {
-  const centeringFactor = 0.005; // adjust velocity by this %
+  const centeringFactor = 0.010; // adjust velocity by this %
 
   let centerX = 0;
   let centerY = 0;
@@ -94,7 +94,7 @@ function flyTowardsCenter(boid) {
 
 // Move away from other boids that are too close to avoid colliding
 function avoidOthers(boid) {
-  const minDistance = 20; // The distance to stay away from other boids
+  const minDistance = 10; // The distance to stay away from other boids
   const avoidFactor = 0.05; // Adjust velocity by this %
   let moveX = 0;
   let moveY = 0;
@@ -114,7 +114,7 @@ function avoidOthers(boid) {
 // Find the average velocity (speed and direction) of the other boids and
 // adjust velocity slightly to match.
 function matchVelocity(boid) {
-  const matchingFactor = 0.05; // Adjust by this % of average velocity
+  const matchingFactor = 0.08; // Adjust by this % of average velocity
 
   let avgDX = 0;
   let avgDY = 0;
@@ -149,7 +149,7 @@ function limitSpeed(boid) {
   }
 }
 
-const DRAW_TRAIL = false;
+const DRAW_TRAIL = true;
 
 function drawBoid(ctx, boid) {
   const angle = Math.atan2(boid.dy, boid.dx);
@@ -159,8 +159,8 @@ function drawBoid(ctx, boid) {
   ctx.fillStyle = "#558cf4";
   ctx.beginPath();
   ctx.moveTo(boid.x, boid.y);
-  ctx.lineTo(boid.x - 15, boid.y + 5);
-  ctx.lineTo(boid.x - 15, boid.y - 5);
+  ctx.lineTo(boid.x - 9, boid.y + 3);
+  ctx.lineTo(boid.x - 9, boid.y - 3);
   ctx.lineTo(boid.x, boid.y);
   ctx.fill();
   ctx.setTransform(1, 0, 0, 1, 0, 0);
