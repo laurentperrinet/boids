@@ -156,7 +156,7 @@ function drawBoid(ctx, boid) {
   ctx.translate(boid.x, boid.y);
   ctx.rotate(angle);
   ctx.translate(-boid.x, -boid.y);
-  ctx.fillStyle = "#558cf4";
+  ctx.fillStyle = "#0099ff"; // "#558cf4";
   ctx.beginPath();
   ctx.moveTo(boid.x, boid.y);
   ctx.lineTo(boid.x - 9, boid.y + 3);
@@ -191,7 +191,7 @@ function animationLoop() {
     boid.x += boid.dx;
     boid.y += boid.dy;
     boid.history.push([boid.x, boid.y])
-    boid.history = boid.history.slice(-50);
+    boid.history = boid.history.slice(-100);
   }
 
   // Clear the canvas and redraw all the boids in their current positions
